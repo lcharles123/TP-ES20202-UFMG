@@ -1,4 +1,4 @@
-# TP-ES20202-UFMG (a definir)
+# TP-ES20202-UFMG (nome a definir)
 Sistema para gerenciamento de dispositivos IoT (internet das coisas)
 
 # Equipe:
