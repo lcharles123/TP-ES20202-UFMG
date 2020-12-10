@@ -2,7 +2,7 @@
 Sistema para gerenciamento de dispositivos IoT (internet das coisas)
 
 # Equipe:
-Gustavo Santos, Lecio Charlles, Marcos, Wender
+Gustavo Santos, Lecio Charlles, Marcos, Wender Carvalho
 
 # Escopo
 - Funcional: 
