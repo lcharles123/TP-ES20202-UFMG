@@ -12,3 +12,6 @@ Gustavo Santos, Lecio Charlles, Marcos Vinícius, Wender Carvalho
     Frontend e Backend: alguma framework e bibliotecas em Python, i.e Django, flask podendo conter elementos em JavaScript;
     Banco de dados: SQlite;
     Outros: github para o gerenciamento e whatsapp para comunicacao.
+
+# Quadro de tarefas:
+https://github.com/lcharles123/es20202ufmg/projects/1
