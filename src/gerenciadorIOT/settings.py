@@ -22,30 +22,35 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'eok38-0mz!ss6md((_2ha-a_+o0dbiif=#sqkv199y62xqvuy^'
 
+import os
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+
     'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
+    'django.contrib.auth', # modelo padrao de auth
+    'django.contrib.contenttypes', #gerencia permissoes com modelos
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'dashboard.apps.DashboardConfig', #adicionado objeto de configuracao contido em ../dashboard/apps.py
+    'dashboard.apps.DashboardConfig', #objeto no arquivo ../dashboard/apps.py
+	'clear_cache'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware', # adicionado para facilitar a lida com templates
+    'django.contrib.sessions.middleware.SessionMiddleware', # gerenciamento de sessoes de usuarios
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware', # associa usuarios autenticados a secoes
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -55,7 +60,7 @@ ROOT_URLCONF = 'gerenciadorIOT.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -83,10 +88,10 @@ DATABASES = { #configuracao do banco de dados
 
 
 # Password validation
-# https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
+#DESABILITADO APENAS PARA DEBUG
 
 AUTH_PASSWORD_VALIDATORS = [
-    {
+   ''' {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
     {
@@ -97,7 +102,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    },'''
 ]
 
 
@@ -115,7 +120,29 @@ USE_L10N = True
 USE_TZ = True
 
 
+# Redirect to home URL after login (Default redirects to /accounts/profile/)
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/accounts/logout/'
+# Add to test email: configurar para aceitar emails
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+
+# Update database configuration from $DATABASE_URL.
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
+
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-
+# The absolute path to the directory where collectstatic will collect static files for deployment.
+STATIC_ROOT = BASE_DIR / 'staticfiles'  #. os.path.join(BASE_DIR, 'staticfiles')
+# The URL to use when referring to static files (where they will be served from)
 STATIC_URL = '/static/'
+
+
+# Static file serving.
+# http://whitenoise.evans.io/en/stable/django.html#django-middleware
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

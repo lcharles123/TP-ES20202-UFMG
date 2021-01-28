@@ -16,17 +16,27 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+# Use include() to add URLS from the dashboard application and authentication system
+from django.urls import include
+
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
+#clear cache
 
+# mapeia para os links no app dashboard em /dashboard/urls.py
+urlpatterns += [
+    path('dashboard/', include('dashboard.urls')),
+]
+from django.views.generic import RedirectView
+urlpatterns += [
+    path('', RedirectView.as_view(url='dashboard/', permanent=True)),
+]
 
 
 #adicionado a url para redirecionamento / -> dashboard
-from django.views.generic import RedirectView
-urlpatterns += [
-    path('', RedirectView.as_view(url='/dashboard/')),
-]
+
+
 
 #aponta para arquvos estaticos de js, imagens e css
 # Use static() to add url mapping to serve static files during development (only)
@@ -36,10 +46,9 @@ from django.conf.urls.static import static
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 
-
-
-
-
-
+# Direciona do root para a view de login 
+urlpatterns += [
+    path('accounts/', include('django.contrib.auth.urls')),
+]
 
 

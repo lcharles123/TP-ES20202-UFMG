@@ -1,0 +1,32 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>GerenciadorIOT</h1>
+
+<p>Bem vindo ao <em>GerenciadorIOT</em>, um sistema basico para gerenciamento de dispositivos. <a target="_blank" rel="noopener noreferrer" href="https://github.com/lcharles123/gerenciadorIOT">Github do projeto</a>.</p>
+<p>TODO</p>
+
+
+<h2>Mapa do site</h2>
+<p> </p>
+
+<div>
+{% load static %}
+<img src="{% static "images/mapa.png" %}" alt="My image" style="width:555px;height:540px;"/>
+</div>  
+
+<!--
+<h2>Dynamic content</h2>
+
+<p>The library has the following record counts:</p>
+<ul>
+<li><strong>Books:</strong> {{ num_books }}</li>
+<li><strong>Copies:</strong> {{ num_instances }}</li>
+<li><strong>Copies available:</strong> {{ num_instances_available }}</li>
+<li><strong>Authors:</strong> {{ num_authors }}</li>
+</ul>
+
+
+You have visited this page {{ num_visits }} time{% if num_visits > 1 %}s{% endif %}.
+-->
+{% endblock %}
