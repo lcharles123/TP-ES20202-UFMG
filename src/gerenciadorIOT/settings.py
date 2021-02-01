@@ -27,11 +27,11 @@ import os
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['localhost','localhost.localdomain']
 
 
 # Application definition
-
+DJANGO_SETTINGS_MODULE='gerenciadorIOT.settings'
 INSTALLED_APPS = [
 
     'django.contrib.admin',
@@ -90,8 +90,9 @@ DATABASES = { #configuracao do banco de dados
 # Password validation
 #DESABILITADO APENAS PARA DEBUG
 
-AUTH_PASSWORD_VALIDATORS = [
-   ''' {
+AUTH_PASSWORD_VALIDATORS =[]
+''' [
+    {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
     {
@@ -100,11 +101,11 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
-    {
+   {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },'''
+    },
 ]
-
+'''
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/

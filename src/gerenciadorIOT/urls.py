@@ -15,25 +15,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from django.conf.urls import url
 # Use include() to add URLS from the dashboard application and authentication system
 from django.urls import include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls)
 ]
-#clear cache
 
 # mapeia para os links no app dashboard em /dashboard/urls.py
+'''
+from dashboard import views
 urlpatterns += [
-    path('dashboard/', include('dashboard.urls')),
+path('dashboard', views.dashboard, name='signup') # signup contida no mesmo arquivo acima
 ]
-from django.views.generic import RedirectView
-urlpatterns += [
-    path('', RedirectView.as_view(url='dashboard/', permanent=True)),
-]
-
-
+'''
 #adicionado a url para redirecionamento / -> dashboard
 
 
@@ -50,5 +46,30 @@ urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += [
     path('accounts/', include('django.contrib.auth.urls')),
 ]
+urlpatterns += [
+    path('dashboard/', include('dashboard.urls')),
+]
+
+from django.views.generic import RedirectView
+urlpatterns += [
+    path('', RedirectView.as_view(url='dashboard/', permanent=True)),
+]
+
+'''
+from django.conf.urls import url
+from django.contrib import admin
+from django.contrib.auth import login
+from gerenciadorIOT.core import views as core_views
+
+
+urlpatterns = [
+    url(r'^$', core_views.login_redirect, name = 'login_redirect'),
+    url(r'^admin/', admin.site.urls),
+    url(r'^login/$', login, {'template_name': 'core/login.html'}, name='login'),
+    url(r'^signup/$', core_views.signup, name='signup'),
+    url(r'^account/$', core_views.account_page, name = 'account_page')
+
+]'''
+
 
 
