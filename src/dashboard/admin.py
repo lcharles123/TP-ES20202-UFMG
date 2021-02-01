@@ -7,9 +7,10 @@ from django.contrib import admin
 
 # apenas testando o registro de um modelo contido no arquivo models.py que eh uma classe python
 
-from dashboard.models import MyModelName
+from dashboard.models import Dispositivos, Links
 
-admin.site.register(MyModelName)
+admin.site.register(Dispositivos)
+admin.site.register(Links)
 
 
 

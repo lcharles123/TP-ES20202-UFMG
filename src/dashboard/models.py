@@ -1,43 +1,47 @@
 from django.db import models
 
-# Create your models here.
-#definindo o modelo da pagina
-class MyModelName(models.Model):
-    """Uma típica classe definindo um modelo, derivada da classe Model."""
 
-    # Campos
-    my_field_name = models.CharField(max_length=20, help_text='Enter field documentation')
-    ...
-
-    # Metadados
+ # Classe principal, onde se encontra todos os links
+class Links(models.Model):
+    nomeLink = models.CharField( max_length=20, help_text='Nome do Link:') 
+    chaveLink = models.CharField(primary_key=True, max_length=16, default="", editable=False) 
+    dispID = models.ForeignKey('Dispositivos', on_delete=models.SET_NULL, null=True) #para preservar os dados de dispositivos
+    
     class Meta:
-        ordering = ['-my_field_name']
+        ordering = ['-nomeLink']
 
     # Métodos
     def get_absolute_url(self):
-        """Retorna a url para acessar uma instancia específica de MyModelName."""
+        """Retorna a url para acessar uma instancia específica de Dispositivos."""
+        return reverse('model-detail-view', args=[str(self.id)])
+
+    def __str__(self):
+        """ String para representar o objeto MyModelName (no site Admin)."""
+        return self.nomeLink
+
+class Dispositivos(models.Model):
+    #name = models.CharField(max_length=100)
+    """Uma típica classe definindo um modelo, derivada da classe Model."""
+    timeStamp = models.DateField(auto_now_add=True,null=True)
+    dado = models.IntegerField( help_text='dado')
+
+
+    # Metadados
+    class Meta:
+        ordering = ['-timeStamp']
+
+    # Métodos
+    def get_absolute_url(self):
+        """Retorna a url para acessar uma instancia específica de Dispositivos."""
         return reverse('model-detail-view', args=[str(self.id)])
 
     def __str__(self):
         """ String para representar o objeto MyModelName (no site Admin)."""
         return self.my_field_name
+    # Campos
 
-#Classe para guardar os dados de registro de um usuário
-class usuario(models.Model):
-    
-    id=models.UUIDField(primary_key=True)
-    email=models.EmailField()
-    
-    #todo usuario sera definido por um email
-    def __str__(self):
-        return self.email
-    
-class dispositivo(models.Model):
-    id=models.UUIDField(primary_key=True)
-    nome=models.TextField(max_length=30)
-    dono=models.ForeignKey('Usuario',on_delete=models.SET_NULL,null=True)
-    link_api=models.TextField()
-    
-    #todo dispositivo será definido por um id + o email do dono
-    def __str__(self):
-        return self.id+self.dono
+
+
+from django.contrib.auth.models import AbstractUser
+
+
