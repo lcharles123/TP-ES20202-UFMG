@@ -27,7 +27,7 @@ import os
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','localhost.localdomain']
+ALLOWED_HOSTS = ['localhost','localhost.localdomain','127.0.0.1']
 
 
 # Application definition
