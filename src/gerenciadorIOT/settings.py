@@ -40,8 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'dashboard.apps.DashboardConfig', #objeto no arquivo ../dashboard/apps.py
-	'clear_cache'
+    'dashboard.apps.DashboardConfig' #objeto no arquivo ../dashboard/apps.py
 ]
 
 MIDDLEWARE = [
