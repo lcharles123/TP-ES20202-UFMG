@@ -72,7 +72,7 @@ def  links(request):
     if request.method == 'GET':
         print("links")
          
-    return render(request, 'signup.html')
+    return render(request, 'links.html')
 
 
 def  graficos(request):

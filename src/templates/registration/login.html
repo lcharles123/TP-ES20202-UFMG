@@ -1,7 +1,7 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-
+<div id="login-card">
 {% if form.errors %}
 <p>Usuario ou senha incorretos, por favor tente novamente.</p>
 {% endif %}
@@ -10,7 +10,7 @@
     {% if user.is_authenticated %}
     <p>Acesso negado.</p>
     {% else %}
-    <p>Por favor, login para ver esta pagina.</p>
+    <p>Por favor, faça login para ver esta pagina.</p>
     {% endif %}
 {% endif %}
 
@@ -27,7 +27,7 @@
 </tr>
 </table>
 
-<input type="submit" value="login" />
+<input type="submit" value="Login" />
 <input type="hidden" name="next" value="{{ next }}" />
 </form>
 
@@ -35,3 +35,4 @@
 <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
 
 {% endblock %}
+</div>
