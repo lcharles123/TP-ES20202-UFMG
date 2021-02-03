@@ -1,57 +1,6 @@
-*{
-    font-family: sans-serif;
-}
-table{
-    border-collapse:separate; 
-    border-spacing: 0 5px;
-}
 .sidebar-nav {
     margin-top: 20px;
     padding: 0;
     list-style: none;
-}
-
-.sidebar-nav li a{
-    color: #A6A6A6;
-    text-decoration: none;
-    
-}
-
-.sidebar-menu{
-    padding-left: 40px;
-    padding-top: 20px;
-    font-size: 20px;
-    height: 100%;
-}
-
-.card{
-    margin: auto;
-    margin-top: 80px;
-    /*margin-left: 70px;*/
-    border: 1px solid #A6A6A6 ;
-    padding: 10px;
-    width: 400px;
-    height: 500px;
-
-}
-
-.card strong{
-    font-size: 26px;
-}
-
-.login-form{
-    text-align: left; 
-    padding:20px; 
-    display: block;
-}
-
-.login-form tr{
-    padding-bottom: 80px;
-}
-
-.login-form .btn{
-    width: 60%;
-    margin-top: 40px;
-    margin-bottom: 80px;
 }
 

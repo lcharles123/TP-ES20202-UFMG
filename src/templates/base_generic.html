@@ -17,7 +17,7 @@
 <div class="container-fluid">
 
 <div class="row">
-  <div class="col-sm-2 sidebar-menu">
+  <div class="col-sm-2">
   {% block sidebar %}
   <ul class="sidebar-nav">
     <li><a href="{% url 'dashboard' %}">Home</a></li>
@@ -25,18 +25,20 @@
  
   <ul class="sidebar-nav">
    {% if user.is_authenticated %}
-     <li>User: {{ user.get_username }}</li> 
+     <li>Usuario: {{ user.get_username }}</li> 
      
      <li><a href="{% url 'dashboard' %}">Dashboard</a></li>   <!-- se usuario autenticado, aqui estao as opcoes do menu -->
-     <li><a href="{% url 'links' %}">Configuracao dos Links</a></li>   <!-- configurar links  -->
+    <!-- <li><a href="{% url 'links' %}">Configuracao dos Links</a></li>   <!-- configurar links  -->
      <li><a href="{% url 'graficos' %}">Graficos</a></li>   <!-- gerar graficos  -->
+     <li><a href="{% url 'acoes' %}">Acoes</a></li>   <!-- gerar graficos  -->
+	 <li><a href="{% url 'ajuda' %}">Ajuda</a></li>   <!-- Pagina de ajuda  -->	 
 	 <li><a href="{% url 'conta' %}">Conta</a></li>   <!-- Configuracoes da conta -->
-     <li><a href="{% url 'logout'%}?next={% url 'dashboard' %}">Logout</a></li>   
+	  
+     <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>   
    {% else %}
-     <li><a href="{% url 'login'%}?next={% url 'dashboard' %}">Login</a></li>   
-     <p><li><a href="{% url 'signup' %}">Registrar</a></li></p>
+     <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>   
+     <p><li><a href="{% url 'signup' %}">Cadastro</a></li></p>
    {% endif %} 
-    <li><a href="{% url 'ajuda' %}">Ajuda</a></li>   <!-- Pagina de ajuda  -->	 
   </ul>
 
 

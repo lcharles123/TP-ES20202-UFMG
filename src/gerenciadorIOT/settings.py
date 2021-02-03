@@ -27,7 +27,7 @@ import os
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','localhost.localdomain','127.0.0.1']
+ALLOWED_HOSTS = ['localhost','localhost.localdomain']
 
 
 # Application definition
@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'dashboard.apps.DashboardConfig' #objeto no arquivo ../dashboard/apps.py
+    'dashboard.apps.DashboardConfig'#objeto no arquivo ../dashboard/apps.py
 ]
 
 MIDDLEWARE = [
@@ -115,10 +115,11 @@ TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
-USE_L10N = True
+USE_L10N = False
 
 USE_TZ = True
 
+DATE_INPUT_FORMATS = '%d-%m-%Y %H:%M:%S' 
 
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
 LOGIN_REDIRECT_URL = '/'

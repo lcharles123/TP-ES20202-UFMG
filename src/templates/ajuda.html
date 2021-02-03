@@ -2,17 +2,18 @@
 
 {% block content %}
 <h3>GerenciadorIOT</h3>
-<h4>Ajuda</h4> 
+<h4>Ajuda</h4>
 <p>Nesta p&aacute;gina encontra-se as instru&ccedil;&otilde;es de como utilizar este sistema.</p>
 <p>Este sistema tem o prop&oacute;sito de receber e armazenar dados de v&aacute;rios dispositivos, sobretudo os relacionados &agrave; internet das coisas (IOT).</p>
 <p>Primeiramente voce pode fazer o seu cadastro no sistema para poder usa-lo.</p>
 <p>Ap&oacute;s o cadastro temos varias op&ccedil;&otilde;es na p&aacute;gina principal:</p>
 <h4>Dashboard:</h4>
-<p>Esta &eacute; a p&aacute;gina principal, nela temos a vizualiza&ccedil;ao da lista de links configurados.</p>
+<p>Esta &eacute; a p&aacute;gina principal, nela temos a vizualiza&ccedil;ao da lista de links configurados e os dados recebidos.</p>
 <h4>Configura&ccedil;&atilde;o dos links:</h4>
-<p>Nesta p&aacute;gina &eacute; possivel fazer a configura&ccedil;&atilde;o para os links da API que ser&atilde;o usados pelos dispositivos para o envio de dados.<br />&Eacute; necessario adicionar apenas um nome para o link, e ent&atilde;o ser&aacute; gerada uma chave aleatoria, ela sera usada para referenciar os dados dos dispositivos que a usar.</p>
+<p>Para configurar os links basta clicar em Adicionar Link no Dashboard e um link sera gerado. Para usa-lo para enviar dados utilize programas de linux embarcado como o curl:<br /><code>curl http://localhost:8000/dashboard/api?key=IePLlsKFO8mzHIiw --data "dado=49"&nbsp;</code></p>
+<p>Os dados serao armazenados em uma tabela para mais tarde poderem ser analizados</p>
 <h4>Graficos:</h4>
-<p>Aqui temos os graficos gerados com os dados dos links, inicialmente nos limitamos apenas &agrave; graficos de temperatura, mas em futuras versoes haver&aacute; uma forma de adicionar outros tipos de vizualiza&ccedil;&atilde;o para dados mais gerais.</p>
+<p>Aqui temos um grafico gerado com os dados dos links, inicialmente nos limitamos apenas &agrave; graficos de temperatura, inicialmente.</p>
 <h4>Ajuda:</h4>
 <p>Exibe esta p&aacute;gina.</p>
 <h4>Conta:</h4>
