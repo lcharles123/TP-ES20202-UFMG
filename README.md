@@ -19,7 +19,8 @@ https://github.com/lcharles123/es20202ufmg/projects/1
 
 # Instalacao:
 
-```git clone https://github.com/lcharles123/gerenciadorIOT.git gerenciadorIOT
+```
+git clone https://github.com/lcharles123/gerenciadorIOT.git gerenciadorIOT
 cd gerenciadorIOT
 pip install -r requeriments.txt
 cd src
