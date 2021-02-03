@@ -1,12 +1,12 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-<div id="login-card">
+<div class="card">
 {% if form.errors %}
 
 <div class="alert alert-danger" role="alert">
     Usuario ou senha incorretos, por favor tente novamente.
-  </div>
+</div>
 {% endif %}
 
 {% if next %}
@@ -36,6 +36,5 @@
 
 {# Assumes you setup the password_reset view in your URLconf #}
 <p style="padding: 20px;"><a href="{% url 'password_reset' %}">Lost password?</a></p>
-
-{% endblock %}
 </div>
+{% endblock %}

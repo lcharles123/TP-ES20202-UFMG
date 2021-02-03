@@ -24,7 +24,7 @@ table{
     height: 100%;
 }
 
-#login-card{
+.card{
     margin: auto;
     margin-top: 80px;
     /*margin-left: 70px;*/
@@ -35,9 +35,8 @@ table{
 
 }
 
-#login-card strong{
+.card strong{
     font-size: 26px;
-
 }
 
 .login-form{
