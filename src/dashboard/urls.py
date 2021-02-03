@@ -28,7 +28,7 @@ urlpatterns += [
 
 
 
-
+gerenciadorIOT
 
 
 

@@ -1,4 +1,4 @@
-# TP-ES20202-UFMG (nome a definir)
+# gerenciadorIOT
 Sistema para gerenciamento de dispositivos IoT (internet das coisas)
 
 # Equipe:
@@ -16,3 +16,13 @@ Gustavo Santos, Lecio Charlles, Marcos Vinícius, Wender Carvalho
 # Quadro de tarefas:
 
 https://github.com/lcharles123/es20202ufmg/projects/1
+
+# Instalacao:
+
+git clone https://github.com/lcharles123/gerenciadorIOT.git gerenciadorIOT
+cd gerenciadorIOT
+pip install -r requeriments.txt
+cd src
+python manage.py runserver
+
+
