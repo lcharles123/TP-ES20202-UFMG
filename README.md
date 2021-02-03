@@ -23,6 +23,6 @@ https://github.com/lcharles123/es20202ufmg/projects/1
 cd gerenciadorIOT
 pip install -r requeriments.txt
 cd src
-python manage.py runserver```
+python manage.py runserver
 
 
