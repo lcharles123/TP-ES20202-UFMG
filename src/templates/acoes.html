@@ -3,5 +3,14 @@
 {% block content %}
 <h3>GerenciadorIOT</h3>
 
-Historia nao implementada.
+<form method="POST" action = "acao.html">{% csrf_token %}
+    <select type="text" id="selecionarAcao" name="selecionarAcao">
+        <option selected>Selecione uma acao</option>
+        <option>Enviar Email</option>
+        <option>curl</option>
+    </select>
+    <br><br>
+    <input type="submit" value="Confirmar"/>
+</form>
+
 {% endblock %}

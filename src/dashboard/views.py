@@ -15,6 +15,8 @@ import time, random, string
 
 import pandas as pd
 import matplotlib.pyplot as plt
+
+from dashboard.forms import AcoesForm
 # view eh o esqueleto, cada funcao abaixo define como a pagina eh obtida, um request pode ser feito em determinado link e os arquivos url.py mapeiam para essa funcao  
 
 #obtem o pandas dataframe a partir da classe do modelo
@@ -110,7 +112,9 @@ def  graficos(request):
 
 def  acoes(request):
     if request.method == 'GET':
-        print("acoes")
+        form_class = AcoesForm
+        template_name = 'templates/acoes.html'
+        success_url = 'templates/acoes_sucesso.html'
 
     return render(request, 'acoes.html' )
 
